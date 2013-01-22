@@ -1,7 +1,7 @@
 package com.github.lucapino.versions.list;
 
 /*
- * Copyright 2001-2005 The Apache Software Foundation.
+ * Copyright 2013 Luca Tagliani
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
