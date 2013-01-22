@@ -1,4 +1,4 @@
-package it.peng.wr.versions.list.maven.plugin;
+package com.github.tagliani.versions.list;
 
 /*
  * Copyright 2001-2005 The Apache Software Foundation.
