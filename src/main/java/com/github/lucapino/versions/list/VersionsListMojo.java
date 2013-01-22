@@ -1,4 +1,4 @@
-package com.github.tagliani.versions.list;
+package com.github.lucapino.versions.list;
 
 /*
  * Copyright 2001-2005 The Apache Software Foundation.
