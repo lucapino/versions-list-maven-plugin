@@ -18,6 +18,12 @@ limitations under the License.
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
     <groupId>it.peng.maven.plugins</groupId>
     <artifactId>versions-list-maven-plugin</artifactId>
@@ -28,6 +34,12 @@ limitations under the License.
     <url>http://maven.apache.org</url>
     <description>Maven plugin for retrieving the version list of an artifact</description>
     <inceptionYear>2013</inceptionYear>
+
+    <scm>
+        <connection>scm:git:git@github.com/lucapino/maven-versions-list-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com/lucapino/maven-versions-list-plugin.git</developerConnection>
+        <url>git@github.com/lucapino/maven-versions-list-plugin.git</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
