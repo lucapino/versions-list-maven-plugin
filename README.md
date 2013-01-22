@@ -5,7 +5,7 @@ Available goals:
 Example plugin definition:
 ==========================
     <plugin>
-        <groupId>it.peng.maven.plugin</groupId>
+        <groupId>com.github.tagliani</groupId>
         <artifactId>versions-list-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
         <configuration>
