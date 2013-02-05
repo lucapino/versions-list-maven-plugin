@@ -121,15 +121,14 @@ public class VersionsListMojo extends AbstractMojo {
 
             List<Version> availableVersions = rangeResult.getVersions();
 
-            System.out.println("Available versions " + availableVersions);
+            getLog().info("Available versions " + availableVersions);
 
             if (!includeSnapshots) {
                 filterSnapshots(availableVersions);
             }
             Collections.reverse(availableVersions);
             ArrayList<String> versionList = new ArrayList<String>();
-            for (Iterator versionIterator = availableVersions.iterator(); versionIterator.hasNext();) {
-                Version version = (Version) versionIterator.next();
+            for (Version version : availableVersions) {
                 versionList.add(version.toString());
             }
             project.getProperties().put(versionListPropertyName, versionList);
