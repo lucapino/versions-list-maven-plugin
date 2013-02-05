@@ -19,15 +19,17 @@ import edu.emory.mathcs.backport.java.util.Collections;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.factory.ArtifactFactory;
-import org.apache.maven.artifact.metadata.ArtifactMetadataSource;
-import org.apache.maven.artifact.repository.ArtifactRepository;
-import org.apache.maven.artifact.versioning.ArtifactVersion;
-import org.apache.maven.artifact.versioning.VersionRange;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
+import org.sonatype.aether.RepositorySystem;
+import org.sonatype.aether.RepositorySystemSession;
+import org.sonatype.aether.artifact.Artifact;
+import org.sonatype.aether.repository.RemoteRepository;
+import org.sonatype.aether.resolution.VersionRangeRequest;
+import org.sonatype.aether.resolution.VersionRangeResult;
+import org.sonatype.aether.util.artifact.DefaultArtifact;
+import org.sonatype.aether.version.Version;
 
 /**
  * Goal which generate a version list.
@@ -37,6 +39,27 @@ import org.apache.maven.project.MavenProject;
  */
 public class VersionsListMojo extends AbstractMojo {
 
+    /**
+     * The entry point to Aether, i.e. the component doing all the work.
+     *
+     * @component
+     */
+    private RepositorySystem repoSystem;
+    /**
+     * The current repository/network configuration of Maven.
+     *
+     * @parameter default-value="${repositorySystemSession}"
+     * @readonly
+     */
+    private RepositorySystemSession repoSession;
+    /**
+     * The project's remote repositories to use for the resolution of project dependencies.
+     *
+     * @parameter default-value="${project.remoteProjectRepositories}"
+     * @readonly
+     */
+    private List<RemoteRepository> projectRepos;
+    // Your code here
     /**
      * Starting version
      *
@@ -80,41 +103,34 @@ public class VersionsListMojo extends AbstractMojo {
      * @readonly
      */
     private MavenProject project;
-    /**
-     * @parameter default-value="${localRepository}"
-     * @required
-     * @readonly
-     */
-    protected ArtifactRepository localRepository;
-    /**
-     * @component
-     */
-    private ArtifactMetadataSource metadataSource;
-    /**
-     * @component
-     */
-    protected ArtifactFactory factory;
-
+    
+    @Override
     public void execute() throws MojoExecutionException {
 
         try {
-            VersionRange range = VersionRange.createFromVersionSpec("[" + startingVersion + ",)");
 
-            Artifact previousArtifact = factory.createProjectArtifact(groupId, artifactId, "");
-            List availableVersions = metadataSource.retrieveAvailableVersions(previousArtifact, localRepository,
-                    project.getRemoteArtifactRepositories());
+            Artifact artifact = new DefaultArtifact(groupId, artifactId, project.getPackaging(), "[" + startingVersion + ",)");
+
+            VersionRangeRequest rangeRequest = new VersionRangeRequest();
+            rangeRequest.setArtifact(artifact);
+            rangeRequest.setRepositories(projectRepos);
+
+            
+            
+            VersionRangeResult rangeResult = repoSystem.resolveVersionRange(repoSession, rangeRequest);
+
+            List<Version> availableVersions = rangeResult.getVersions();
+
+            System.out.println("Available versions " + availableVersions);
+
             if (!includeSnapshots) {
                 filterSnapshots(availableVersions);
             }
             Collections.reverse(availableVersions);
             ArrayList<String> versionList = new ArrayList<String>();
             for (Iterator versionIterator = availableVersions.iterator(); versionIterator.hasNext();) {
-                ArtifactVersion version = (ArtifactVersion) versionIterator.next();
-                if (!range.containsVersion((ArtifactVersion) version)) {
-                    versionIterator.remove();
-                } else {
-                    versionList.add(version.toString());
-                }
+                Version version = (Version) versionIterator.next();
+                versionList.add(version.toString());
             }
             project.getProperties().put(versionListPropertyName, versionList);
         } catch (Exception ex) {
@@ -122,10 +138,10 @@ public class VersionsListMojo extends AbstractMojo {
         }
     }
 
-    private void filterSnapshots(List versions) {
-        for (Iterator versionIterator = versions.iterator(); versionIterator.hasNext();) {
-            ArtifactVersion version = (ArtifactVersion) versionIterator.next();
-            if ("SNAPSHOT".equals(version.getQualifier()) || version.toString().endsWith("SNAPSHOT")) {
+    private void filterSnapshots(List<Version> versions) {
+        for (Iterator<Version> versionIterator = versions.iterator(); versionIterator.hasNext();) {
+            Version version = versionIterator.next();
+            if (version.toString().endsWith("SNAPSHOT")) {
                 versionIterator.remove();
             }
         }
