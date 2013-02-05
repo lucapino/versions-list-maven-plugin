@@ -119,8 +119,9 @@ public class VersionsListMojo extends AbstractMojo {
             
             VersionRangeResult rangeResult = repoSystem.resolveVersionRange(repoSession, rangeRequest);
 
+            getLog().info("Retrieving version of " + artifact.getGroupId() + ":" + artifact.getArtifactId() + ":" + artifact.getExtension());
             List<Version> availableVersions = rangeResult.getVersions();
-
+            
             getLog().info("Available versions " + availableVersions);
 
             if (!includeSnapshots) {
