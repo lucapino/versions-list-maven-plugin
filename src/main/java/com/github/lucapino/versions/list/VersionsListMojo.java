@@ -59,7 +59,6 @@ public class VersionsListMojo extends AbstractMojo {
      * @readonly
      */
     private List<RemoteRepository> projectRepos;
-    // Your code here
     /**
      * Starting version
      *
@@ -106,32 +105,29 @@ public class VersionsListMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException {
-
         try {
-
+            // create the artifact to search for
             Artifact artifact = new DefaultArtifact(groupId, artifactId, project.getPackaging(), "[" + startingVersion + ",)");
-
+            // create the version request object
             VersionRangeRequest rangeRequest = new VersionRangeRequest();
             rangeRequest.setArtifact(artifact);
             rangeRequest.setRepositories(projectRepos);
-
-
-
+            // search for the versions
             VersionRangeResult rangeResult = repoSystem.resolveVersionRange(repoSession, rangeRequest);
-
             getLog().info("Retrieving version of " + artifact.getGroupId() + ":" + artifact.getArtifactId() + ":" + artifact.getExtension());
             List<Version> availableVersions = rangeResult.getVersions();
-
             getLog().info("Available versions " + availableVersions);
-
+            // if we don't want the snapshots, filter them
             if (!includeSnapshots) {
                 filterSnapshots(availableVersions);
             }
+            // order the version from the newer to the older
             Collections.reverse(availableVersions);
             ArrayList<String> versionList = new ArrayList<String>();
             for (Version version : availableVersions) {
                 versionList.add(version.toString());
             }
+            // set the poject property
             project.getProperties().put(versionListPropertyName, versionList);
         } catch (Exception ex) {
             throw new MojoExecutionException("Error in plugin", ex.getCause());
@@ -141,6 +137,7 @@ public class VersionsListMojo extends AbstractMojo {
     private void filterSnapshots(List<Version> versions) {
         for (Iterator<Version> versionIterator = versions.iterator(); versionIterator.hasNext();) {
             Version version = versionIterator.next();
+            // if the version is a snapshot, get rid of it
             if (version.toString().endsWith("SNAPSHOT")) {
                 versionIterator.remove();
             }
