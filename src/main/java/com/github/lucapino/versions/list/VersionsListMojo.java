@@ -1,5 +1,3 @@
-package com.github.lucapino.versions.list;
-
 /*
  * Copyright 2013 Luca Tagliani
  *
@@ -15,6 +13,8 @@ package com.github.lucapino.versions.list;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.github.lucapino.versions.list;
+
 import edu.emory.mathcs.backport.java.util.Collections;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -103,7 +103,7 @@ public class VersionsListMojo extends AbstractMojo {
      * @readonly
      */
     private MavenProject project;
-    
+
     @Override
     public void execute() throws MojoExecutionException {
 
@@ -115,13 +115,13 @@ public class VersionsListMojo extends AbstractMojo {
             rangeRequest.setArtifact(artifact);
             rangeRequest.setRepositories(projectRepos);
 
-            
-            
+
+
             VersionRangeResult rangeResult = repoSystem.resolveVersionRange(repoSession, rangeRequest);
 
             getLog().info("Retrieving version of " + artifact.getGroupId() + ":" + artifact.getArtifactId() + ":" + artifact.getExtension());
             List<Version> availableVersions = rangeResult.getVersions();
-            
+
             getLog().info("Available versions " + availableVersions);
 
             if (!includeSnapshots) {
