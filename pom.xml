@@ -25,7 +25,7 @@ limitations under the License.
 
     <groupId>com.github.lucapino</groupId>
     <artifactId>versions-list-maven-plugin</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>Maven Version List Plugin</name>
