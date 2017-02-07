@@ -22,15 +22,15 @@ import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
-import org.sonatype.aether.RepositorySystem;
-import org.sonatype.aether.RepositorySystemSession;
-import org.sonatype.aether.artifact.Artifact;
-import org.sonatype.aether.repository.RemoteRepository;
-import org.sonatype.aether.resolution.VersionRangeRequest;
-import org.sonatype.aether.resolution.VersionRangeResult;
-import org.sonatype.aether.util.artifact.DefaultArtifact;
-import org.sonatype.aether.version.Version;
-
+import org.eclipse.aether.RepositorySystem;
+import org.eclipse.aether.RepositorySystemSession;
+import org.eclipse.aether.artifact.Artifact;
+import org.eclipse.aether.artifact.DefaultArtifact;
+import org.eclipse.aether.repository.RemoteRepository;
+import org.eclipse.aether.resolution.VersionRangeRequest;
+import org.eclipse.aether.resolution.VersionRangeResolutionException;
+import org.eclipse.aether.resolution.VersionRangeResult;
+import org.eclipse.aether.version.Version;
 
 /**
  * Goal which generate a version list.
@@ -54,7 +54,8 @@ public class VersionsListMojo extends AbstractMojo {
      */
     private RepositorySystemSession repoSession;
     /**
-     * The project's remote repositories to use for the resolution of project dependencies.
+     * The project's remote repositories to use for the resolution of project
+     * dependencies.
      *
      * @parameter default-value="${project.remoteProjectRepositories}"
      * @readonly
@@ -124,13 +125,13 @@ public class VersionsListMojo extends AbstractMojo {
             }
             // order the version from the newer to the older
             Collections.reverse(availableVersions);
-            ArrayList<String> versionList = new ArrayList<String>();
+            ArrayList<String> versionList = new ArrayList<>();
             for (Version version : availableVersions) {
                 versionList.add(version.toString());
             }
             // set the poject property
             project.getProperties().put(versionListPropertyName, versionList);
-        } catch (Exception ex) {
+        } catch (VersionRangeResolutionException ex) {
             throw new MojoExecutionException("Error in plugin", ex.getCause());
         }
     }
