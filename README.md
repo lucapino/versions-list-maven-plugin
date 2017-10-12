@@ -45,9 +45,7 @@ Example plugin definition:
             <versionListPropertyName>versionList</versionListPropertyName>
         </configuration>
     </plugin>
-    ```
-
-
+    
 Example _list_ goal configuration:
 -------------------------------------
 ```
@@ -57,7 +55,8 @@ Example _list_ goal configuration:
         <startingVersion>1.0</startingVersion>
         <versionListPropertyName>versionList</versionListPropertyName>
     </configuration>
-```
+
+
 [Build Status]:https://travis-ci.org/lucapino/versions-list-maven-plugin
 [Build Status img]:https://travis-ci.org/lucapino/versions-list-maven-plugin.svg?branch=master
 
