@@ -14,7 +14,7 @@ jdk:
 install: /bin/true
 
 script:
-  - mvn package -Dskip.unit.tests=true -Dmaven.javadoc.skip=true -V -B
+  - mvn package -Dmaven.javadoc.skip=true -V -B
   
 after_success:
   - bash <(curl -s https://codecov.io/bash)
