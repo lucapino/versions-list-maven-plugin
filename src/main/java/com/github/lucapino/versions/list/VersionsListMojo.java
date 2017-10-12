@@ -21,6 +21,9 @@ import java.util.Iterator;
 import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.aether.RepositorySystem;
 import org.eclipse.aether.RepositorySystemSession;
@@ -35,74 +38,56 @@ import org.eclipse.aether.version.Version;
 /**
  * Goal which generate a version list.
  *
- * @goal list
- *
  */
+@Mojo(name = "list")
 public class VersionsListMojo extends AbstractMojo {
 
     /**
      * The entry point to Aether, i.e. the component doing all the work.
-     *
-     * @component
      */
+    @Component
     private RepositorySystem repoSystem;
     /**
      * The current repository/network configuration of Maven.
-     *
-     * @parameter default-value="${repositorySystemSession}"
-     * @readonly
      */
+    @Parameter(defaultValue = "${repositorySystemSession}", readonly = true)
     private RepositorySystemSession repoSession;
     /**
      * The project's remote repositories to use for the resolution of project
      * dependencies.
-     *
-     * @parameter default-value="${project.remoteProjectRepositories}"
-     * @readonly
      */
+    @Parameter(defaultValue = "${project.remoteProjectRepositories}", readonly = true)
     private List<RemoteRepository> projectRepos;
     /**
      * Starting version
-     *
-     * @parameter
-     * @required
      */
+    @Parameter(required = true)
     private String startingVersion;
     /**
      * Starting version
-     *
-     * @parameter default-value="false"
-     * @required
      */
+    @Parameter(defaultValue = "false", required = true)
     private boolean includeSnapshots;
     /**
      * GroupId of project.
-     *
-     * @parameter default-value="${project.groupId}
-     * @required
      */
+    @Parameter(defaultValue = "${project.groupId}", required = true)
     private String groupId;
     /**
      * ArtifactId of project.
-     *
-     * @parameter default-value="${project.artifactId}
-     * @required
      */
+    @Parameter(defaultValue = "${project.artifactId})", required = true)
     private String artifactId;
     /**
      * Name of the property that contains the ordered list of versions
      * requested.
-     *
-     * @parameter default-value="${project.artifactId}
-     * @required
      */
+    @Parameter(defaultValue = "${project.artifactId}", required = true)
     private String versionListPropertyName;
     /**
      * The Maven project
-     *
-     * @parameter default-value="${project}"
-     * @readonly
      */
+    @Parameter(defaultValue = "${project}", readonly = true)
     private MavenProject project;
 
     @Override
