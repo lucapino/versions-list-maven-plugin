@@ -29,7 +29,7 @@ limitations under the License.
 
     <scm>
         <connection>scm:git:git@github.com:lucapino/versions-list-maven-plugin.git</connection>
-        <developerConnection>scm:git:ssh:@//github.com:lucapino/versions-list-maven-plugin.git</developerConnection>
+        <developerConnection>scm:git:ssh://github.com:lucapino/versions-list-maven-plugin.git</developerConnection>
         <url>http://github.com/lucapino/versions-list-maven-plugin.git</url>
     </scm>
 
