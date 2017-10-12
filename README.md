@@ -1,5 +1,15 @@
+<h1>Version list Maven plugin</h1><br>
+
+[![][Build Status img]][Build Status]
+[![][Coverage Status img]][Coverage Status]
+[![][Dependency Status img]][Dependency Status]
+[![][license img]][license]
+[![][Maven Central img]][Maven Central]
+[![][Javadocs img]][Javadocs]
+
+
 Available goals:
-================
+---
 * **list** - create a project property containing the versions list of an artifact
 
 Example plugin definition:
