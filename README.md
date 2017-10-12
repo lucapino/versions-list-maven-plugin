@@ -33,29 +33,30 @@ Available goals:
 
 Example plugin definition:
 ==========================
-   ```
-   <plugin>
-        <groupId>com.github.lucapino</groupId>
-        <artifactId>versions-list-maven-plugin</artifactId>
-        <version>1.0.1</version>
-        <configuration>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <startingVersion>1.0</startingVersion>
-            <versionListPropertyName>versionList</versionListPropertyName>
-        </configuration>
-    </plugin>
-    
-Example _list_ goal configuration:
--------------------------------------
 ```
-    <configuration>
-        <groupId>commons-collections</groupId>
-        <artifactId>commons-collections</artifactId>
-        <startingVersion>1.0</startingVersion>
-        <versionListPropertyName>versionList</versionListPropertyName>
-    </configuration>
-
+<plugin>
+   <groupId>com.github.lucapino</groupId>
+   <artifactId>versions-list-maven-plugin</artifactId>
+   <version>1.0.1</version>
+   <configuration>
+       <groupId>commons-collections</groupId>
+       <artifactId>commons-collections</artifactId>
+       <startingVersion>1.0</startingVersion>
+       <versionListPropertyName>versionList</versionListPropertyName>
+   </configuration>
+</plugin>
+```
+    
+Example plugin definition:
+==========================
+```
+<configuration>
+   <groupId>commons-collections</groupId>
+   <artifactId>commons-collections</artifactId>
+   <startingVersion>1.0</startingVersion>
+   <versionListPropertyName>versionList</versionListPropertyName>
+</configuration>
+```
 
 [Build Status]:https://travis-ci.org/lucapino/versions-list-maven-plugin
 [Build Status img]:https://travis-ci.org/lucapino/versions-list-maven-plugin.svg?branch=master
