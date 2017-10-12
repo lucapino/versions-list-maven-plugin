@@ -1,5 +1,7 @@
 <h1>Version list Maven plugin</h1><br>
 
+Maven plugin for retrieving the version list of an artifact
+
 [![][Build Status img]][Build Status]
 [![][Coverage Status img]][Coverage Status]
 [![][Dependency Status img]][Dependency Status]
@@ -7,13 +9,32 @@
 [![][Maven Central img]][Maven Central]
 [![][Javadocs img]][Javadocs]
 
+*Maven 3.3.&ast; artifact*
+```
+<plugin>
+     <groupId>com.github.lucapino</groupId>
+     <artifactId>versions-list-maven-plugin</artifactId>
+     <version>1.0.1</version>
+</plugin>
+```
+
+*Maven 3.5.&ast; artifact*
+```
+<plugin>
+     <groupId>com.github.lucapino</groupId>
+     <artifactId>versions-list-maven-plugin</artifactId>
+     <version>2.0.0</version>
+</plugin>
+```
+
 Available goals:
 ---
 * **list** - create a project property containing the versions list of an artifact
 
 Example plugin definition:
 ==========================
-    <plugin>
+   ```
+   <plugin>
         <groupId>com.github.lucapino</groupId>
         <artifactId>versions-list-maven-plugin</artifactId>
         <version>1.0.1</version>
@@ -24,16 +45,19 @@ Example plugin definition:
             <versionListPropertyName>versionList</versionListPropertyName>
         </configuration>
     </plugin>
+    ```
+
 
 Example _list_ goal configuration:
 -------------------------------------
+```
     <configuration>
         <groupId>commons-collections</groupId>
         <artifactId>commons-collections</artifactId>
         <startingVersion>1.0</startingVersion>
         <versionListPropertyName>versionList</versionListPropertyName>
     </configuration>
-
+```
 [Build Status]:https://travis-ci.org/lucapino/versions-list-maven-plugin
 [Build Status img]:https://travis-ci.org/lucapino/versions-list-maven-plugin.svg?branch=master
 
