@@ -37,8 +37,8 @@ Example _list_ goal configuration:
 [Build Status]:https://travis-ci.org/lucapino/versions-list-maven-plugin
 [Build Status img]:https://travis-ci.org/lucapino/versions-list-maven-plugin.svg?branch=master
 
-[Coverage Status]:https://codecov.io/gh/brettwooldridge/HikariCP
-[Coverage Status img]:https://codecov.io/gh/brettwooldridge/HikariCP/branch/dev/graph/badge.svg
+[Coverage Status]:https://codecov.io/gh/lucapino/versions-list-maven-plugin
+[Coverage Status img]:https://codecov.io/gh/lucapino/versions-list-maven-plugin/branch/master/graph/badge.svg
 
 [Dependency Status]:https://www.versioneye.com/user/projects/59df2c5915f0d723d921f2cc
 [Dependency Status img]:https://www.versioneye.com/user/projects/59df2c5915f0d723d921f2cc/badge.svg?style=flat
