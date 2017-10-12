@@ -19,7 +19,7 @@ limitations under the License.
 
     <groupId>com.github.lucapino</groupId>
     <artifactId>versions-list-maven-plugin</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>Maven Version List Plugin</name>
@@ -31,7 +31,7 @@ limitations under the License.
         <connection>scm:git:git@github.com:lucapino/versions-list-maven-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:lucapino/versions-list-maven-plugin.git</developerConnection>
         <url>https://github.com/lucapino/versions-list-maven-plugin.git</url>
-      <tag>versions-list-maven-plugin-2.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
