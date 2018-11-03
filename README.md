@@ -66,8 +66,8 @@ Example plugin definition:
 [Coverage Status]:https://codecov.io/gh/lucapino/versions-list-maven-plugin
 [Coverage Status img]:https://codecov.io/gh/lucapino/versions-list-maven-plugin/branch/master/graph/badge.svg
 
-[Dependency Status]:https://www.versioneye.com/user/projects/59df2c5915f0d723d921f2cc
-[Dependency Status img]:https://www.versioneye.com/user/projects/59df2c5915f0d723d921f2cc/badge.svg?style=flat
+[Dependency Status]:https://snyk.io/test/github/lucapino/versions-list-maven-plugin
+[Dependency Status img]:https://snyk.io/test/github/lucapino/versions-list-maven-plugin/badge.svg?style=flat
 
 [License]:LICENSE
 [License img]:https://img.shields.io/badge/license-Apache%202-blue.svg
