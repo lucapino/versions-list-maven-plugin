@@ -111,9 +111,9 @@ public class VersionsListMojo extends AbstractMojo {
             // order the version from the newer to the older
             Collections.reverse(availableVersions);
             ArrayList<String> versionList = new ArrayList<>();
-            for (Version version : availableVersions) {
+            availableVersions.forEach((version) -> {
                 versionList.add(version.toString());
-            }
+            });
             // set the poject property
             project.getProperties().put(versionListPropertyName, versionList);
         } catch (VersionRangeResolutionException ex) {

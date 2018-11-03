@@ -5,9 +5,11 @@ Maven plugin for retrieving the version list of an artifact
 [![][Build Status img]][Build Status]
 [![][Coverage Status img]][Coverage Status]
 [![][Dependency Status img]][Dependency Status]
-[![][license img]][license]
+[![][License img]][License]
 [![][Maven Central img]][Maven Central]
 [![][Javadocs img]][Javadocs]
+
+Plugin documentation can be found at https://lucapino.github.io/confluence-maven-plugin
 
 *Maven 3.3.&ast; artifact*
 ```
@@ -67,8 +69,8 @@ Example plugin definition:
 [Dependency Status]:https://www.versioneye.com/user/projects/59df2c5915f0d723d921f2cc
 [Dependency Status img]:https://www.versioneye.com/user/projects/59df2c5915f0d723d921f2cc/badge.svg?style=flat
 
-[license]:LICENSE
-[license img]:https://img.shields.io/badge/license-Apache%202-blue.svg
+[License]:LICENSE
+[License img]:https://img.shields.io/badge/license-Apache%202-blue.svg
 
 [Maven Central]:https://maven-badges.herokuapp.com/maven-central/com.github.lucapino/versions-list-maven-plugin
 [Maven Central img]:https://maven-badges.herokuapp.com/maven-central/com.github.lucapino/versions-list-maven-plugin/badge.svg
