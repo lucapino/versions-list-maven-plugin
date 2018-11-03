@@ -11,7 +11,7 @@
 
     <custom>
         <skinConfig>
-            <keywords>maven, jira, plugin</keywords>
+            <keywords>maven, versions, plugin</keywords>
             <descriptionUrl>Documentation for the Maven Version List Plugin</descriptionUrl>
             <topNav>
                 <menu>Documentation</menu>
