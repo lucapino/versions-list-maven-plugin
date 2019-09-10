@@ -76,7 +76,7 @@ public class VersionsListMojo extends AbstractMojo {
     /**
      * ArtifactId of project.
      */
-    @Parameter(defaultValue = "${project.artifactId})", required = true)
+    @Parameter(defaultValue = "${project.artifactId}", required = true)
     private String artifactId;
     /**
      * Name of the property that contains the ordered list of versions

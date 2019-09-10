@@ -35,11 +35,27 @@ Available goals:
 
 Example plugin definition:
 ==========================
+*Maven 3.3.&ast; artifact*
 ```
 <plugin>
    <groupId>com.github.lucapino</groupId>
    <artifactId>versions-list-maven-plugin</artifactId>
    <version>1.0.1</version>
+   <configuration>
+       <groupId>commons-collections</groupId>
+       <artifactId>commons-collections</artifactId>
+       <startingVersion>1.0</startingVersion>
+       <versionListPropertyName>versionList</versionListPropertyName>
+   </configuration>
+</plugin>
+```
+
+*Maven 3.5.&ast; artifact*
+```
+<plugin>
+   <groupId>com.github.lucapino</groupId>
+   <artifactId>versions-list-maven-plugin</artifactId>
+   <version>2.0.0</version>
    <configuration>
        <groupId>commons-collections</groupId>
        <artifactId>commons-collections</artifactId>
