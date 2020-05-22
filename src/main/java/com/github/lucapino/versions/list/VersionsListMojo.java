@@ -53,8 +53,7 @@ public class VersionsListMojo extends AbstractMojo {
     @Parameter(defaultValue = "${repositorySystemSession}", readonly = true)
     private RepositorySystemSession repoSession;
     /**
-     * The project's remote repositories to use for the resolution of project
-     * dependencies.
+     * The project's remote repositories to use for the resolution of project dependencies.
      */
     @Parameter(defaultValue = "${project.remoteProjectRepositories}", readonly = true)
     private List<RemoteRepository> projectRepos;
@@ -79,8 +78,7 @@ public class VersionsListMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project.artifactId}", required = true)
     private String artifactId;
     /**
-     * Name of the property that contains the ordered list of versions
-     * requested.
+     * Name of the property that contains the ordered list of versions requested.
      */
     @Parameter(defaultValue = "${project.artifactId}", required = true)
     private String versionListPropertyName;
