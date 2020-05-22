@@ -9,7 +9,7 @@ Maven plugin for retrieving the version list of an artifact
 [![][Maven Central img]][Maven Central]
 [![][Javadocs img]][Javadocs]
 
-Plugin documentation can be found at https://lucapino.github.io/confluence-maven-plugin
+Plugin documentation can be found at https://lucapino.github.io/versions-list-maven-plugin
 
 *Maven 3.3.&ast; artifact*
 ```
