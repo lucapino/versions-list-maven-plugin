@@ -25,7 +25,7 @@ Plugin documentation can be found at https://lucapino.github.io/confluence-maven
 <plugin>
      <groupId>com.github.lucapino</groupId>
      <artifactId>versions-list-maven-plugin</artifactId>
-     <version>2.0.0</version>
+     <version>2.1.0</version>
 </plugin>
 ```
 
